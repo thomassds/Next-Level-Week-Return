@@ -10,4 +10,8 @@ export class PrismaFeedbacksRepository implements FeedbacksRepository {
             }
         });
     }
+
+    async indexAll() {
+        await prisma.feedback.findMany();
+    }
 }

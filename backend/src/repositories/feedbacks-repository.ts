@@ -6,4 +6,5 @@ export interface FeedbackCreateData {
 
 export interface FeedbacksRepository {
     create: (data: FeedbackCreateData) => Promise<void>;
+    indexAll: () => Promise<void>;
 }

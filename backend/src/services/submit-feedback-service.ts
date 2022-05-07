@@ -28,7 +28,7 @@ export class SubmitFeedbackService {
             throw new Error('Invalid screenshot format.');
         }
 
-        await this.feedbacksRepository.create({
+        const feedback = await this.feedbacksRepository.create({
             type,
             comment,
             screenshot
@@ -40,8 +40,11 @@ export class SubmitFeedbackService {
 				`<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; font-family: sans-serif; font-size: 16px; color: #111;">`,
 					`<p>Tipo do Feedback: ${type}</p>`,
 					`<p>Comentario: ${comment}</p>`,
+                    screenshot ? `<img src="${screenshot}" />` : ' ',
 				`</div>`
 			].join('\n')
         })
+
+        return feedback;
     }
 }
