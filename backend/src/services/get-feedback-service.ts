@@ -11,7 +11,7 @@ export class GetFeedbackService {
         private feedbacksRepository: FeedbacksRepository,
     ) {}
         async execute() {
-            const response = this.feedbacksRepository.indexAll();
+            const response = this.feedbacksRepository.indexAll!();
 
             return response;
         }    
